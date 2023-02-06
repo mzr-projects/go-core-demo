@@ -1,6 +1,7 @@
 package main
 
 import (
+	"com.mt/go-demo/types"
 	"fmt"
 	"rsc.io/quote"
 )
@@ -19,6 +20,10 @@ Declare and assign at the same time -> INITIALIZATION
 */
 var t = "OMG its outside"
 var m = `Jimmy said "BRO it's awesome"`
+
+var xn int = 42
+var yn string = "new string"
+var zn bool = false
 
 /*
 Here we defined a variable with specific type int and assigns the default value of 0 to it
@@ -56,7 +61,7 @@ func main() {
 	fmt.Printf("Now x is : %d\n", x)
 
 	/*
-		We can also declare variables like this with "var" keyword
+		We can also declare variables with "var" keyword
 		Teh difference between := and "var" we can use var outside function bodies
 	*/
 	var y = "This is me"
@@ -65,11 +70,18 @@ func main() {
 	fmt.Printf("z Value is : %d , z Type is : %T\n ", z, z)
 	fmt.Printf("m Value is : %s , m Type is : %T\n ", m, m)
 
+	s := fmt.Sprintf("%v\t%v\t%v\t", xn, yn, zn)
+	fmt.Println(s)
+
 	/*
 		Calling methods
 	*/
 	HelloQuote()
 	testLoop()
+
+	types.ShowCustomType()
+	types.ExploreSomeTypes()
+
 }
 
 func Hello() string {
