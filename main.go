@@ -1,6 +1,7 @@
 package main
 
 import (
+	control_flow "com.mt/go-demo/control-flow"
 	"com.mt/go-demo/types"
 	"fmt"
 	"rsc.io/quote"
@@ -81,7 +82,15 @@ func main() {
 
 	types.ShowCustomType()
 	types.ExploreSomeTypes()
+	types.ExploreStrings()
+	types.ExploreConstants()
+	types.NumbExercise()
 
+	control_flow.TestNestLoop()
+	control_flow.TestSomeOtherLoops()
+	control_flow.TestForContinue()
+	control_flow.TestIfElse()
+	control_flow.TestSwitch()
 }
 
 func Hello() string {
