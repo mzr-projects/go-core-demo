@@ -80,12 +80,16 @@ func main() {
 	HelloQuote()
 	testLoop()
 
+	fmt.Println("\n=== Types")
+
 	types.ShowCustomType()
 	types.ExploreSomeTypes()
 	types.ExploreStrings()
 	types.ExploreConstants()
 	types.NumbExercise()
+	types.TypeConversion()
 
+	fmt.Println("=== Control FLow")
 	control_flow.TestNestLoop()
 	control_flow.TestSomeOtherLoops()
 	control_flow.TestForContinue()

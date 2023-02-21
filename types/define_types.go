@@ -99,6 +99,16 @@ func ExploreStrings() {
 	for i, v := range s {
 		fmt.Println(i, v)
 	}
+
+	fmt.Println("== Substrings")
+	var str string = "Hello, world!"
+	fmt.Println(str[0:2], str[0:5], str[:5], str[7:12], str[7:])
+
+	fmt.Println("== RUNE")
+	str = "Hello, "
+	var r rune = 127757
+	str = str + string(r)
+	fmt.Println(str)
 }
 
 func ExploreConstants() {
@@ -119,4 +129,19 @@ func NumbExercise() {
 	m := (42 < 43)
 	l := (42 < 32)
 	fmt.Printf("y is : %t, m is : %t, l is : %t\n", y, m, l)
+}
+
+func TypeConversion() {
+
+	var i int = 10
+	var j float32 = 4.6
+
+	/*
+		We have error in the following line because Go does not convert types automatically
+	*/
+	//fmt.Println(i + j)
+
+	fmt.Println(int(j) + i)
+	fmt.Println(float32(i) + j)
+
 }
