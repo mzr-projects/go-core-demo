@@ -1,6 +1,9 @@
 package control_flow
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func TestNestLoop() {
 	for i := 0; i < 3; i++ {
@@ -52,6 +55,18 @@ func TestForContinue() {
 
 }
 
+func TestForRangeLoop() {
+	//var str string = "Hello, you my man!"
+	var str string = "🌍 👋"
+	/*
+		k is the offset
+		v is rune of the string
+	*/
+	for k, v := range str {
+		fmt.Println(k, v, string(v))
+	}
+}
+
 func TestIfElse() {
 	/*
 		If we want two statements at the same line we need a ";" for it, like the following
@@ -94,5 +109,32 @@ func TestSwitch() {
 	case 3 == 3:
 		fmt.Println("3==3")
 
+	}
+
+	word := os.Args[1]
+	switch word {
+	case "hello":
+		fmt.Println("Hi to u")
+	case "goodbye":
+		fmt.Println("Be safe!")
+	case "greetings":
+		fmt.Println("HELLLO!!!")
+	default:
+		fmt.Println("I dont know what to say")
+
+	}
+
+	c := "cracker_joint!"
+	switch l := len(word); {
+	case word == "hi":
+		fmt.Println("Very formal")
+	case word == "hello":
+		fmt.Println("Hi me")
+	case l == 1:
+		fmt.Println("I cant understand this one character word ;(")
+	case 1 < l && l < 10, word == c:
+		fmt.Println("This word is either ", c, " or its 2-9 characters long.")
+	default:
+		fmt.Println("I dont know the word but it has ", l, " characters.")
 	}
 }

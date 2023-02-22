@@ -93,6 +93,7 @@ func main() {
 	control_flow.TestNestLoop()
 	control_flow.TestSomeOtherLoops()
 	control_flow.TestForContinue()
+	control_flow.TestForRangeLoop()
 	control_flow.TestIfElse()
 	control_flow.TestSwitch()
 }
