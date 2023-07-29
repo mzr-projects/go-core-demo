@@ -1,7 +1,14 @@
+/*
+We have two kinds of packages in Go lang
+ 1. Executable (go build -> will build an executable file for us) -> This "go build" command only creates executable for
+    the main package other packages get nothing out of it.Package main always must have a function called main
+ 2. Reusable
+*/
 package main
 
 import (
-	control_flow "com.mt/go-demo/control-flow"
+	controlflow "com.mt/go-demo/control-flow"
+	"com.mt/go-demo/functions"
 	"com.mt/go-demo/types"
 	"fmt"
 	"rsc.io/quote"
@@ -14,6 +21,8 @@ go run main.go : This command will run the code
 go build : This command will build the code and create a new exe file in the current directory
 go list -m all : This command will print the current module's dependencies
 go get : This command will go to some repo and get some code for us
+go install : Compiles and installs the packages
+go test : Runs any tests associated with the current project
 */
 
 /*
@@ -90,12 +99,22 @@ func main() {
 	types.TypeConversion()
 
 	fmt.Println("=== Control FLow")
-	control_flow.TestNestLoop()
-	control_flow.TestSomeOtherLoops()
-	control_flow.TestForContinue()
-	control_flow.TestForRangeLoop()
-	control_flow.TestIfElse()
-	control_flow.TestSwitch()
+	controlflow.TestNestLoop()
+	controlflow.TestSomeOtherLoops()
+	controlflow.TestForContinue()
+	controlflow.TestForRangeLoop()
+	controlflow.TestIfElse()
+	controlflow.TestSwitch()
+
+	fmt.Println("=== Functions")
+	fmt.Println(functions.FirstMethod("SS"))
+	fmt.Println(functions.Add(1, 2))
+	add, remainder := functions.AddAndRemainder(3, 2)
+	fmt.Println("add is :", add, "remainder is:", remainder)
+	add, _ = functions.AddAndRemainder(9, 2)
+	fmt.Println("add is :", add, "remainder is:", remainder)
+	_, remainder = functions.AddAndRemainder(8, 2)
+	fmt.Println("add is :", add, "remainder is:", remainder)
 }
 
 func Hello() string {
