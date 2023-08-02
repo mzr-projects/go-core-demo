@@ -8,9 +8,11 @@ func Add(a int, b int) int {
 	return a + b
 }
 
-// AddAndRemainder : In go we can have functions return multiple values at the same time
-//
-//	all function calls in go are call by value /*
+/*
+AddAndRemainder : In go we can have functions return multiple values at the same time
+
+	all function calls in go are call by value
+*/
 func AddAndRemainder(a int, b int) (int, int) {
 	return a + b, a % b
 }

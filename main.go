@@ -31,6 +31,10 @@ Declare and assign at the same time -> INITIALIZATION
 var t = "OMG its outside"
 var m = `Jimmy said "BRO it's awesome"`
 
+/*
+Here we can omit the type we assign the variables (int,string,bool) cause the compiler will
+define it automatically
+*/
 var xn int = 42
 var yn string = "new string"
 var zn bool = false
@@ -60,6 +64,8 @@ func main() {
 
 	/*
 		:= is short declaration operator
+		we cannot use e.g x:= 78 after this because we get compile time error the variable
+		is already defined you cannot define the same one again
 	*/
 	x := 42
 	fmt.Printf("x is : %d\n", x)
@@ -72,7 +78,7 @@ func main() {
 
 	/*
 		We can also declare variables with "var" keyword
-		Teh difference between := and "var" we can use var outside function bodies
+		The difference between := and "var" we can use var outside function bodies
 	*/
 	var y = "This is me"
 	fmt.Printf("y Value is : %s , y Type is : %T\n ", y, y)
