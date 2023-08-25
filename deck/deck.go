@@ -2,26 +2,17 @@ package deck
 
 import (
 	"fmt"
+	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 /*
 Here we defined a new type named deck of string
+--type deck []string
 */
 type deck []string
-
-/*
-(d deck) is the receiver of the function, here we say any variable of type deck now gets access to the print method
-
-	d is (the reference) actual copy of the deck we're working with is available in the function d is essentially reference
-	to the cards variable we are passing to it, it's similar to the word "this" in java
-*/
-func (d deck) printDeck() {
-	for i, deck := range d {
-		fmt.Printf("index: %d, value : %s\n", i, deck)
-	}
-}
 
 func newDeck() deck {
 	cards := deck{}
@@ -35,6 +26,18 @@ func newDeck() deck {
 	}
 
 	return cards
+}
+
+/*
+(d deck) is the receiver of the function, here we say any variable of type deck now gets access to the print method
+
+	d is (the reference) actual copy of the deck we're working with is available in the function d is essentially reference
+	to the cards variable we are passing to it, it's similar to the word "this" in java
+*/
+func (d deck) printDeck() {
+	for i, deck := range d {
+		fmt.Printf("index: %d, value : %s\n", i, deck)
+	}
 }
 
 /*
@@ -77,4 +80,27 @@ func newDeckFromFile(fileName string) deck {
 	}
 
 	return strings.Split(string(byteSlice), ",")
+}
+
+func (d deck) shuffle() {
+	source := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(source)
+
+	for i := range d {
+		/*
+			Intn -> will generate a random number between 0 and len(d)-1
+			newPosition := rand.Intn(len(d) - 1)
+		*/
+		/*
+			Here we changed the mechanism of random number generation to a more robust one using seed and source
+			to make sure get new numbers out of the random generator after each run
+		*/
+		newPosition := r.Intn(len(d) - 1)
+		/*
+			This is the weired syntax that swaps the values in a slice
+			d[newPosition] on the right hand side will replace with the d[i] on the left hand side
+			d[i] on the right hand side will replace with the d[newPosition] on the left hand side
+		*/
+		d[i], d[newPosition] = d[newPosition], d[i]
+	}
 }
