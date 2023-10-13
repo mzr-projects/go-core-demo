@@ -35,7 +35,7 @@ func (pointerToPerson *Person) printPerson(person Person) {
 
 /*
 *Person -> This is a type description, it means we are working with a pointer to a Person
-*pointerToPerson -> Give me the value this memory address is pointing at
+*pointerToPerson -> Gives me the value this memory address is pointing at
  */
 func (pointerToPerson *Person) updatePerson(newFirstName string) {
 	(*pointerToPerson).firstName = newFirstName

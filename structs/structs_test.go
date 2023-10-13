@@ -10,7 +10,7 @@ func TestPerson(t *testing.T) {
 	p.printPerson(p)
 
 	/*
-		&p -> Give me the memory address of the value(p) this variable is pointing at
+		&p -> Gives me the memory address of the value(p) this variable is pointing at
 		pPointer := &p
 	*/
 	/*
