@@ -1,6 +1,8 @@
 package structs
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Person struct {
 	firstName string
@@ -13,7 +15,7 @@ type ContactInfo struct {
 	zipCode int
 }
 
-func (pointerToPerson *Person) create(firstName string, lastName string, contact ContactInfo) Person {
+func create(firstName string, lastName string, contact ContactInfo) Person {
 	/*
 		1st method to initialize the struct in go but, it's not recommended because we must be careful
 		about the order of firstName and lastName
@@ -26,6 +28,16 @@ func (pointerToPerson *Person) create(firstName string, lastName string, contact
 	return person
 }
 
+// createPersonWithPointer is a method that creates a new instance of the Person struct and returns a pointer to it.
+// It takes the firstName, lastName and contact parameters as input and initializes the fields of the Person struct.
+// The returned pointer points to the newly created Person instance.
+func createPersonWithPointer(firstName string, lastName string, contact ContactInfo) *Person {
+	return &Person{firstName: firstName, lastName: lastName, contact: contact}
+}
+
+/*
+Here (pointerToPerson *Person) is the receiver of the create method
+*/
 func (pointerToPerson *Person) printPerson(person Person) {
 	/*
 		%+v will print out multiple field names and their values

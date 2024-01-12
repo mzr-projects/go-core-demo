@@ -16,6 +16,7 @@ type deck []string
 
 func newDeck() deck {
 	cards := deck{}
+
 	cardSuits := []string{"spades", "hearts", "diamonds", "clubs"}
 	cardValues := []string{"ace", "two", "three", "four"}
 
@@ -31,8 +32,8 @@ func newDeck() deck {
 /*
 (d deck) is the receiver of the function, here we say any variable of type deck now gets access to the print method
 
-	d is (the reference) actual copy of the deck we're working with is available in the function d is essentially reference
-	to the cards variable we are passing to it, it's similar to the word "this" in java
+d is (the reference) actual copy of the deck we're working with is available in the function d is essentially
+reference to the cards variable we are passing to it, it's similar to the word "this" in java
 */
 func (d deck) printDeck() {
 	for i, deck := range d {

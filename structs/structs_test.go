@@ -28,6 +28,21 @@ func TestStructGotcha(t *testing.T) {
 	fmt.Println(mySlice)
 }
 
+func TestCreatePersonWithPinter(t *testing.T) {
+	var p = createPersonWithPointer("meFirst", "meLast",
+		ContactInfo{email: "me@me.com", zipCode: 123234})
+	fmt.Printf("Created Person Name is : %v %v\n", p.firstName, p.lastName)
+
+	p = createPersonWithPointer("yo", "yo", ContactInfo{
+		email: "yo@yo.com", zipCode: 122323,
+	})
+	fmt.Printf("Created Person Name is : %v %v\n", p.firstName, p.lastName)
+
+	p.updatePerson("new yo")
+	fmt.Printf("Created Person Name is : %v %v\n", p.firstName, p.lastName)
+
+}
+
 /*
 Here the slice will be changed unlike the struct one !!!!!!
 Because under the hood the go will create a struct that has length, capacity,pointer to the head of slice
