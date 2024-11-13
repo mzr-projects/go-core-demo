@@ -9,3 +9,7 @@ func TestSlices(t *testing.T) {
 func TestArrays(t *testing.T) {
 	workWithArrays()
 }
+
+func TestMaps(t *testing.T) {
+	workWIthMaps()
+}
